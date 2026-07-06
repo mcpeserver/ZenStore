@@ -1,7 +1,7 @@
 import React from "react";
 import { Shield, ExternalLink, Terminal, MessageSquare, Heart } from "lucide-react";
 import { DeveloperConfig } from "../data";
-import logoZenStore from "../assets/images/logo_zenstore_1783331470098.jpg";
+import logoZenStore from "../assets/images/logo_zenstore.jpg";
 
 interface FooterProps {
   devConfig: DeveloperConfig | null;

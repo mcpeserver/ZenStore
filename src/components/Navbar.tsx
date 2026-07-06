@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu, X, ChevronDown, MessageSquare, Terminal, ExternalLink, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { DeveloperConfig } from "../data";
-import logoZenStore from "../assets/images/logo_zenstore_1783331470098.jpg";
+import logoZenStore from "../assets/images/logo_zenstore.jpg";
 
 interface NavbarProps {
   devConfig: DeveloperConfig | null;

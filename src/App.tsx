@@ -11,7 +11,7 @@ import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import WhatsAppAndScroll from "./components/WhatsAppAndScroll";
 import { motion } from "motion/react";
-import logoZenStore from "./assets/images/logo_zenstore_1783331470098.jpg";
+import logoZenStore from "./assets/images/logo_zenstore.jpg";
 
 export default function App() {
   const [devConfig, setDevConfig] = useState<DeveloperConfig | null>(null);

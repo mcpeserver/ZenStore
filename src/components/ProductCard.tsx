@@ -21,7 +21,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           icon: <Server className="h-10 w-10 text-sky-400" />,
           glowClass: "glow-blue",
           accentColor: "sky",
-          imageSrc: "/src/assets/images/minecraft_basic_portrait_1783332535855.jpg", // high fidelity generated portrait image
+          imageSrc: "/src/assets/images/minecraft_basic_portrait.jpg", // high fidelity generated portrait image
         };
       case "premium":
         return {
@@ -29,7 +29,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           icon: <Cpu className="h-10 w-10 text-blue-400" />,
           glowClass: "glow-blue",
           accentColor: "blue",
-          imageSrc: "/src/assets/images/minecraft_premium_portrait_1783332553071.jpg",
+          imageSrc: "/src/assets/images/minecraft_premium_portrait.jpg",
         };
       case "bot":
         return {
@@ -37,7 +37,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           icon: <Smartphone className="h-10 w-10 text-indigo-400" />,
           glowClass: "glow-blue",
           accentColor: "indigo",
-          imageSrc: "/src/assets/images/bot_panel_portrait_1783332565084.jpg",
+          imageSrc: "/src/assets/images/bot_panel_portrait.jpg",
         };
     }
   };
