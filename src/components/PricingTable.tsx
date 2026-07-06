@@ -95,7 +95,7 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
                         <th className="py-5 px-8">Spesifikasi RAM</th>
                         <th className="py-5 px-6">Alokasi CPU</th>
                         <th className="py-5 px-6">Penyimpanan Disk</th>
-                        <th className="py-5 px-6">Harga Sewa</th>
+                        <th className="py-5 px-6">Harga Beli</th>
                         <th className="py-5 px-8 text-right">Langkah Berikutnya</th>
                       </tr>
                     </thead>
@@ -140,7 +140,7 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
                               }`}
                             >
                               <MessageSquare className="h-3.5 w-3.5 stroke-[2.5px]" />
-                              Sewa Sekarang
+                              Beli Sekarang
                             </a>
                           </td>
                         </tr>
@@ -184,7 +184,7 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
                       {/* Price and Checkout CTA */}
                       <div className="flex items-center justify-between pt-1">
                         <div>
-                          <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Sewa Per Bulan</p>
+                          <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Harga Per Bulan</p>
                           <p className={`text-xl font-black font-display text-${selectedProduct.type === 'basic' ? 'sky' : selectedProduct.type === 'premium' ? 'blue' : 'indigo'}-600`}>
                             {item.price}
                           </p>
@@ -200,7 +200,7 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
                           }`}
                         >
                           <MessageSquare className="h-3.5 w-3.5" />
-                          Sewa
+                          Beli
                         </a>
                       </div>
                     </div>
