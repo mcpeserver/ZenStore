@@ -47,7 +47,7 @@ export default function Footer({ devConfig }: FooterProps) {
             <div className="flex items-center gap-2.5">
               <div className="h-9 w-9 rounded-lg bg-white border border-blue-200 overflow-hidden flex items-center justify-center shadow-sm">
                 <img 
-                  src={logoZenStore} 
+                  src={`${logoZenStore}?v=1783331470098`} 
                   alt="ZenStore Mascot" 
                   referrerPolicy="no-referrer"
                   className="h-full w-full object-cover"

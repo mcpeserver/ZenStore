@@ -144,7 +144,7 @@ export default function App() {
                 <div className="relative group max-w-[240px] rounded-2xl overflow-hidden border border-blue-200 shadow-md">
                   {!mascotError ? (
                     <img 
-                      src={logoZenStore} 
+                      src={`${logoZenStore}?v=1783331470098`} 
                       alt="ZenStore Mascot Logo" 
                       referrerPolicy="no-referrer"
                       onError={() => setMascotError(true)}

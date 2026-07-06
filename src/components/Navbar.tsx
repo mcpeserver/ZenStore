@@ -71,7 +71,7 @@ export default function Navbar({ devConfig }: NavbarProps) {
               <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 opacity-20 blur group-hover:opacity-40 transition duration-300"></div>
               <div className="relative h-9 w-9 rounded-lg bg-white border border-blue-200 overflow-hidden flex items-center justify-center">
                 <img 
-                  src={logoZenStore} 
+                  src={`${logoZenStore}?v=1783331470098`} 
                   alt="ZenStore Mascot" 
                   referrerPolicy="no-referrer"
                   className="h-full w-full object-cover"
