@@ -82,15 +82,15 @@ export const MINECRAFT_PREMIUM_ITEMS: PricingPlanItem[] = [
 
 export const PANEL_BOT_ITEMS: PricingPlanItem[] = [
   { ram: "1 GB", cpu: "100%", disk: "5 GB", price: "Rp1.000", priceNum: 1000 },
-  { ram: "1 GB", cpu: "200%", disk: "10 GB", price: "Rp2.000", priceNum: 2000 },
-  { ram: "1 GB", cpu: "300%", disk: "15 GB", price: "Rp3.000", priceNum: 3000 },
-  { ram: "1 GB", cpu: "400%", disk: "20 GB", price: "Rp4.000", priceNum: 4000 },
-  { ram: "1 GB", cpu: "500%", disk: "25 GB", price: "Rp5.000", priceNum: 5000 },
-  { ram: "1 GB", cpu: "600%", disk: "30 GB", price: "Rp6.000", priceNum: 6000 },
-  { ram: "1 GB", cpu: "700%", disk: "35 GB", price: "Rp7.000", priceNum: 7000 },
-  { ram: "1 GB", cpu: "800%", disk: "40 GB", price: "Rp8.000", priceNum: 8000 },
-  { ram: "1 GB", cpu: "900%", disk: "45 GB", price: "Rp9.000", priceNum: 9000 },
-  { ram: "1 GB", cpu: "1000%", disk: "50 GB", price: "Rp10.000", priceNum: 10000 },
+  { ram: "2 GB", cpu: "200%", disk: "10 GB", price: "Rp2.000", priceNum: 2000 },
+  { ram: "3 GB", cpu: "300%", disk: "15 GB", price: "Rp3.000", priceNum: 3000 },
+  { ram: "4 GB", cpu: "400%", disk: "20 GB", price: "Rp4.000", priceNum: 4000 },
+  { ram: "5 GB", cpu: "500%", disk: "25 GB", price: "Rp5.000", priceNum: 5000 },
+  { ram: "6 GB", cpu: "600%", disk: "30 GB", price: "Rp6.000", priceNum: 6000 },
+  { ram: "7 GB", cpu: "700%", disk: "35 GB", price: "Rp7.000", priceNum: 7000 },
+  { ram: "8 GB", cpu: "800%", disk: "40 GB", price: "Rp8.000", priceNum: 8000 },
+  { ram: "9 GB", cpu: "900%", disk: "45 GB", price: "Rp9.000", priceNum: 9000 },
+  { ram: "10 GB", cpu: "1000%", disk: "50 GB", price: "Rp10.000", priceNum: 10000 },
 ];
 
 export const PRODUCTS: ProductCard[] = [

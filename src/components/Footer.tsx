@@ -62,10 +62,6 @@ export default function Footer({ devConfig }: FooterProps) {
             <p className="text-xs text-slate-600 max-w-sm leading-relaxed">
               ZenStore menyediakan layanan Minecraft Server Hosting serta Panel Bot WhatsApp dengan harga terjangkau, performa stabil, dan aktivasi cepat. Kami berdedikasi memberikan kualitas premium tanpa membebani dompet Anda.
             </p>
-            <div className="flex items-center gap-2 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Primary Node: Jakarta Core, ID</span>
-            </div>
           </div>
 
           {/* Quick Links (3 Cols) */}

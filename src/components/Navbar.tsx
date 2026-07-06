@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X, ChevronDown, MessageSquare, Terminal, ExternalLink, Shield } from "lucide-react";
+import { Menu, X, MessageSquare, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { DeveloperConfig } from "../data";
 import logoZenStore from "../assets/images/logo_zenstore.jpg";
@@ -98,62 +98,6 @@ export default function Navbar({ devConfig }: NavbarProps) {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
-
-            {/* Developer Network Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setShowDevDropdown(!showDevDropdown)}
-                onBlur={() => setTimeout(() => setShowDevDropdown(false), 200)}
-                className="text-slate-600 hover:text-blue-600 font-medium text-sm tracking-wide transition-colors flex items-center gap-1 py-2 outline-none cursor-pointer"
-              >
-                <Terminal className="h-3.5 w-3.5 text-blue-600" />
-                <span>Dev Hub</span>
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${showDevDropdown ? 'rotate-180' : ''}`} />
-              </button>
-
-              <AnimatePresence>
-                {showDevDropdown && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 mt-2 w-56 rounded-xl bg-white border border-blue-100 p-2 shadow-xl"
-                  >
-                    <div className="px-3 py-2 border-b border-slate-100 mb-1.5">
-                      <p className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">System Architect</p>
-                      <p className="text-sm font-bold text-slate-800">{devConfig?.name || "Ran Dev"}</p>
-                    </div>
-                    <a
-                      href={devConfig?.website.portfolio}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5 text-blue-500" />
-                      <span>Website Server Lain</span>
-                    </a>
-                    <a
-                      href={devConfig?.community.discord}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-                    >
-                      <Terminal className="h-3.5 w-3.5 text-indigo-500" />
-                      <span>Komunitas Developer</span>
-                    </a>
-                    <a
-                      href={`https://wa.me/${devConfig?.contact.whatsapp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-                    >
-                      <MessageSquare className="h-3.5 w-3.5 text-blue-500" />
-                      <span>WhatsApp Developer</span>
-                    </a>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
           </div>
 
           {/* Desktop Right CTA */}
@@ -201,37 +145,6 @@ export default function Navbar({ devConfig }: NavbarProps) {
                   {link.name}
                 </a>
               ))}
-
-              <div className="border-t border-slate-100 my-3 pt-3">
-                <p className="px-3 text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">Developer Links</p>
-                <a
-                  href={devConfig?.website.portfolio}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-                >
-                  <ExternalLink className="h-4 w-4 text-blue-500" />
-                  <span>Website Server Lain</span>
-                </a>
-                <a
-                  href={devConfig?.community.discord}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-                >
-                  <Terminal className="h-4 w-4 text-indigo-500" />
-                  <span>Komunitas Developer</span>
-                </a>
-                <a
-                  href={`https://wa.me/${devConfig?.contact.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-                >
-                  <MessageSquare className="h-4 w-4 text-blue-500" />
-                  <span>WhatsApp Developer</span>
-                </a>
-              </div>
 
               <div className="pt-3">
                 <a
