@@ -56,36 +56,36 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
       className={`relative rounded-3xl overflow-hidden border bg-gradient-to-b ${product.colorTheme.gradient} ${product.colorTheme.border} ${product.colorTheme.glow} transition-all duration-300 flex flex-col h-full`}
     >
       {/* Immersive Edge-to-Edge Portrait Screen Header */}
-      <div className="relative aspect-[9/16] w-full overflow-hidden bg-slate-50 border-b border-blue-100 group/screen">
+      <div className={`relative w-full overflow-hidden bg-slate-50 border-b border-blue-100 group/screen ${imageError ? 'aspect-[9/16]' : ''}`}>
         {/* Full-bleed Portrait Art */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          {!imageError ? (
+        {!imageError ? (
+          <div className="w-full overflow-hidden">
             <img
               src={details.imageSrc}
               alt={product.title}
               referrerPolicy="no-referrer"
               onError={() => setImageError(true)}
-              className="w-full h-full object-cover object-center transition-transform duration-700 group-hover/screen:scale-105"
+              className="w-full h-auto block transition-transform duration-700 group-hover/screen:scale-102"
             />
-          ) : (
-            /* Custom SVG/CSS Rich Gaming Banner Fallback */
-            <div className="absolute inset-0 w-full h-full flex flex-col justify-between p-6 bg-slate-100">
-              <div className="absolute inset-0 grid-pattern opacity-30"></div>
-              <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl opacity-20 bg-${details.accentColor}-400`}></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full blur-2xl opacity-10 bg-slate-300"></div>
+          </div>
+        ) : (
+          /* Custom SVG/CSS Rich Gaming Banner Fallback */
+          <div className="absolute inset-0 w-full h-full flex flex-col justify-between p-6 bg-slate-100">
+            <div className="absolute inset-0 grid-pattern opacity-30"></div>
+            <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl opacity-20 bg-${details.accentColor}-400`}></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full blur-2xl opacity-10 bg-slate-300"></div>
 
-              {/* Center Icon */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <div className="relative group p-5 bg-white rounded-3xl border border-slate-100 shadow-xl">
-                  <div className={`absolute -inset-2 rounded-3xl opacity-40 blur bg-gradient-to-r ${product.colorTheme.primary}`}></div>
-                  <div className="relative">
-                    {details.icon}
-                  </div>
+            {/* Center Icon */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+              <div className="relative group p-5 bg-white rounded-3xl border border-slate-100 shadow-xl">
+                <div className={`absolute -inset-2 rounded-3xl opacity-40 blur bg-gradient-to-r ${product.colorTheme.primary}`}></div>
+                <div className="relative">
+                  {details.icon}
                 </div>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Ambient Overlays for Deep Immersiveness */}
         {/* Top Vignette - keeping it light/subtle */}
