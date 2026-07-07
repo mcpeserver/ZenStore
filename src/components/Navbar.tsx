@@ -39,30 +39,6 @@ export default function Navbar({ devConfig }: NavbarProps) {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm" id="navbar">
-      {/* Top Banner - Subtle Dev & Community Link */}
-      <div className="bg-blue-600 py-1.5 px-4 text-center text-[11px] font-mono tracking-wider text-blue-100 select-none flex items-center justify-center gap-2 overflow-x-auto whitespace-nowrap">
-        <span className="text-blue-200">Developer:</span>
-        <span className="text-white font-black">{devConfig?.name || "Ran Dev"}</span>
-        <span className="text-blue-400">|</span>
-        <a 
-          href={devConfig?.community.discord || "#"} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-white hover:text-blue-200 font-semibold transition-colors flex items-center gap-0.5"
-        >
-          Komunitas Dev <ExternalLink className="h-2.5 w-2.5" />
-        </a>
-        <span className="text-blue-400">|</span>
-        <a 
-          href={devConfig?.website.portfolio || "#"} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-white hover:text-blue-200 font-semibold transition-colors flex items-center gap-0.5"
-        >
-          Web Lain <ExternalLink className="h-2.5 w-2.5" />
-        </a>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo Brand */}
@@ -157,6 +133,20 @@ export default function Navbar({ devConfig }: NavbarProps) {
                   Hubungi Admin
                 </a>
               </div>
+
+              {devConfig && (
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-center gap-1.5 text-[10px] font-mono text-slate-400">
+                  <span>Developed by</span>
+                  <a 
+                    href={devConfig.website.portfolio || "https://sfl.gl/x2ic"}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-slate-500 hover:text-blue-600 font-bold transition-colors underline decoration-dotted"
+                  >
+                    {devConfig.name}
+                  </a>
+                </div>
+              )}
             </div>
           </motion.div>
         )}

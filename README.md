@@ -15,7 +15,7 @@
 1. **Desain UI/UX Premium & Responsif**: Menggunakan kombinasi warna modern, tipografi elegan dari Google Fonts, efek interaksi interaktif, dan performa mulus di semua ukuran layar (Mobile, Tablet, Desktop).
 2. **Katalog Produk Dinamis**: Menampilkan paket-paket hosting Minecraft (Basic & Premium) serta WhatsApp Bot Panel dengan detail spesifikasi lengkap dan harga mulai dari Rp1.000.
 3. **Navigasi Mulus & Interaktif**: Header navigasi lengket (sticky), integrasi menu mobile yang halus dengan Framer Motion, serta smooth-scroll ke setiap section halaman.
-4. **Tombol Call-To-Action (CTA) Instan**: Akses cepat menuju WhatsApp Admin Resmi (`WA JP` & `WA RB`) dan navigasi ke daftar paket produk.
+4. **Tombol Call-To-Action (CTA) Instan**: Akses cepat menuju WhatsApp Admin Resmi untuk pemesanan langsung dan konsultasi hosting gratis.
 5. **Dukungan Deploy Vercel**: Dilengkapi konfigurasi siap pakai (`vercel.json`) untuk penyebaran aplikasi kilat dan performa CDN super cepat.
 
 ---

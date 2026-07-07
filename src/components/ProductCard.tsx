@@ -56,18 +56,26 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
       className={`relative rounded-3xl overflow-hidden border bg-gradient-to-b ${product.colorTheme.gradient} ${product.colorTheme.border} ${product.colorTheme.glow} transition-all duration-300 flex flex-col h-full`}
     >
       {/* Immersive Edge-to-Edge Portrait Screen Header */}
-      <div className={`relative w-full overflow-hidden bg-slate-50 border-b border-blue-100 group/screen ${imageError ? 'aspect-[9/16]' : ''}`}>
+      <div className="relative w-full h-[280px] sm:h-[320px] md:h-[350px] bg-slate-950 overflow-hidden border-b border-blue-100 group/screen flex items-center justify-center">
         {/* Full-bleed Portrait Art */}
         {!imageError ? (
-          <div className="w-full overflow-hidden">
+          <>
+            {/* Blurred background underlay for seamless premium fill */}
+            <img
+              src={details.imageSrc}
+              alt=""
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover blur-md opacity-40 scale-105 pointer-events-none"
+            />
+            {/* Crisp centered product poster */}
             <img
               src={details.imageSrc}
               alt={product.title}
               referrerPolicy="no-referrer"
               onError={() => setImageError(true)}
-              className="w-full h-auto block transition-transform duration-700 group-hover/screen:scale-102"
+              className="relative z-10 h-full w-auto max-w-full object-contain transition-transform duration-700 group-hover/screen:scale-105"
             />
-          </div>
+          </>
         ) : (
           /* Custom SVG/CSS Rich Gaming Banner Fallback */
           <div className="absolute inset-0 w-full h-full flex flex-col justify-between p-6 bg-slate-100">

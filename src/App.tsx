@@ -254,6 +254,58 @@ export default function App() {
         {/* FAQ Accordion Lists */}
         <FAQSection />
 
+        {/* Developer Custom Website Store CTA */}
+        <section className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 py-16 px-4 relative overflow-hidden">
+          {/* Grid ambient decorative background */}
+          <div className="absolute inset-0 grid-pattern opacity-10"></div>
+          <div className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none"></div>
+          <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-sky-500/10 blur-[100px] pointer-events-none"></div>
+
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col items-center"
+            >
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/20 text-xs font-mono font-medium tracking-wider text-blue-400 uppercase mb-4">
+                <Sparkles className="h-3 w-3 text-blue-400 animate-pulse" />
+                <span>Custom Web Development</span>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-display text-white tracking-tight leading-tight">
+                Ingin Buat <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-300">Website Toko Online</span> Sendiri?
+              </h2>
+              
+              <p className="text-sm sm:text-base text-slate-300 mt-4 max-w-2xl leading-relaxed">
+                Kami melayani jasa pembuatan website toko online profesional, landing page, dan sistem web custom dengan tampilan modern, responsive di HP/Laptop, serta dioptimalkan untuk SEO & kecepatan akses.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href={`https://wa.me/${devConfig?.contact?.phone || "0895602592430"}?text=Halo%20Dev,%20saya%20tertarik%20untuk%20membuat%20website%20toko%20online`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-blue-600/30 hover:scale-[1.02] duration-200"
+                >
+                  <MessageSquare className="h-4.5 w-4.5" />
+                  <span>Chat Developer Sekarang</span>
+                </a>
+                
+                <a
+                  href={devConfig?.website?.portfolio || "https://sfl.gl/x2ic"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-medium text-sm tracking-wide border border-white/10 hover:border-white/20 transition-all duration-200"
+                >
+                  <span>Lihat Portfolio Dev</span>
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
       </main>
 
       {/* Footer Column with Dev info */}
