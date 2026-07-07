@@ -164,8 +164,7 @@ export default function App() {
                         <p className="text-[10px] font-mono text-slate-500 mt-1 uppercase">KILLUA EDITION</p>
                       </div>
                       <div className="pt-2 border-t border-slate-100 w-full text-[10px] text-slate-500 space-y-0.5 font-mono">
-                        <p>WA JP: 08131469731</p>
-                        <p>WA RB: 08131469731</p>
+                        <p>WhatsApp Admin: 08131469731</p>
                       </div>
                     </div>
                   )}
@@ -185,36 +184,21 @@ export default function App() {
                   Beli layanan hosting Minecraft Server & Panel Bot WhatsApp secara resmi, mudah, dan aman langsung melalui Customer Support kami di WhatsApp. Tim Admin kami siap melayani setup instan serta konsultasi teknis harian.
                 </p>
                 
-                {/* Official WhatsApp Numbers Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 w-full max-w-xl">
+                {/* Official WhatsApp Number Card */}
+                <div className="mt-6 w-full max-w-sm">
                   
-                  {/* JP Admin */}
-                  <div className="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-blue-100 hover:bg-white hover:shadow-md transition-all group">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Customer Support JP</p>
-                    <p className="text-sm font-bold text-slate-950 font-mono mt-1">WA JP: 08131469731</p>
+                  {/* General Admin Support */}
+                  <div className="p-5 rounded-2xl border border-blue-100 bg-slate-50/50 hover:border-blue-200 hover:bg-white hover:shadow-lg hover:shadow-blue-100/30 transition-all group">
+                    <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold text-blue-600">Customer Support</p>
+                    <p className="text-base font-extrabold text-slate-950 font-sans mt-1.5">WhatsApp Admin: 08131469731</p>
                     <a 
                       href="https://wa.me/628131469731" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="text-[11px] font-bold text-blue-600 hover:text-blue-700 flex items-center justify-center lg:justify-start gap-1 mt-2.5 transition-colors uppercase font-mono"
+                      className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center justify-center lg:justify-start gap-1.5 mt-3 transition-colors uppercase font-mono"
                     >
-                      <span>Hubungi JP Admin</span>
-                      <MessageSquare className="h-3 w-3" />
-                    </a>
-                  </div>
-
-                  {/* RB Admin */}
-                  <div className="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-blue-100 hover:bg-white hover:shadow-md transition-all group">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Customer Support RB</p>
-                    <p className="text-sm font-bold text-slate-950 font-mono mt-1">WA RB: 08131469731</p>
-                    <a 
-                      href="https://wa.me/628131469731" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-[11px] font-bold text-blue-600 hover:text-blue-700 flex items-center justify-center lg:justify-start gap-1 mt-2.5 transition-colors uppercase font-mono"
-                    >
-                      <span>Hubungi RB Admin</span>
-                      <MessageSquare className="h-3 w-3" />
+                      <span>Hubungi WhatsApp Admin</span>
+                      <MessageSquare className="h-4 w-4" />
                     </a>
                   </div>
 
