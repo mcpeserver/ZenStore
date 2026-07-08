@@ -95,7 +95,7 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
                         <th className="py-5 px-8">Spesifikasi RAM</th>
                         <th className="py-5 px-6">Alokasi CPU</th>
                         <th className="py-5 px-6">Penyimpanan Disk</th>
-                        <th className="py-5 px-6">Harga Beli</th>
+c                        <th className="py-5 px-6">Harga Beli</th>
                         <th className="py-5 px-8 text-right">Langkah Berikutnya</th>
                       </tr>
                     </thead>

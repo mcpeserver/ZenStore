@@ -60,11 +60,9 @@ export const MINECRAFT_BASIC_ITEMS: PricingPlanItem[] = [
   { ram: "3 GB", cpu: "300%", disk: "15 GB", price: "Rp15.000", priceNum: 15000 },
   { ram: "4 GB", cpu: "400%", disk: "20 GB", price: "Rp20.000", priceNum: 20000 },
   { ram: "5 GB", cpu: "500%", disk: "25 GB", price: "Rp25.000", priceNum: 25000 },
-  { ram: "6 GB", cpu: "600%", disk: "30 GB", price: "Rp30.000", priceNum: 30000 },
-  { ram: "7 GB", cpu: "700%", disk: "35 GB", price: "Rp35.000", priceNum: 35000 },
-  { ram: "8 GB", cpu: "800%", disk: "40 GB", price: "Rp40.000", priceNum: 40000 },
-  { ram: "9 GB", cpu: "900%", disk: "45 GB", price: "Rp45.000", priceNum: 45000 },
-  { ram: "10 GB", cpu: "1000%", disk: "50 GB", price: "Rp50.000", priceNum: 50000 },
+  { ram: "6 GB", cpu: "500%", disk: "30 GB", price: "Rp30.000", priceNum: 30000 },
+  { ram: "7 GB", cpu: "500%", disk: "35 GB", price: "Rp35.000", priceNum: 35000 },
+  { ram: "8 GB", cpu: "500%", disk: "40 GB", price: "Rp40.000", priceNum: 40000 },
 ];
 
 export const MINECRAFT_PREMIUM_ITEMS: PricingPlanItem[] = [
@@ -73,11 +71,9 @@ export const MINECRAFT_PREMIUM_ITEMS: PricingPlanItem[] = [
   { ram: "3 GB", cpu: "300%", disk: "15 GB", price: "Rp30.000", priceNum: 30000 },
   { ram: "4 GB", cpu: "400%", disk: "20 GB", price: "Rp40.000", priceNum: 40000 },
   { ram: "5 GB", cpu: "500%", disk: "25 GB", price: "Rp50.000", priceNum: 50000 },
-  { ram: "6 GB", cpu: "600%", disk: "30 GB", price: "Rp60.000", priceNum: 60000 },
-  { ram: "7 GB", cpu: "700%", disk: "35 GB", price: "Rp70.000", priceNum: 70000 },
-  { ram: "8 GB", cpu: "800%", disk: "40 GB", price: "Rp80.000", priceNum: 80000 },
-  { ram: "9 GB", cpu: "900%", disk: "45 GB", price: "Rp90.000", priceNum: 90000 },
-  { ram: "10 GB", cpu: "1000%", disk: "50 GB", price: "Rp100.000", priceNum: 100000 },
+  { ram: "6 GB", cpu: "500%", disk: "30 GB", price: "Rp60.000", priceNum: 60000 },
+  { ram: "7 GB", cpu: "500%", disk: "35 GB", price: "Rp70.000", priceNum: 70000 },
+  { ram: "8 GB", cpu: "500%", disk: "40 GB", price: "Rp80.000", priceNum: 80000 },
 ];
 
 export const PANEL_BOT_ITEMS: PricingPlanItem[] = [

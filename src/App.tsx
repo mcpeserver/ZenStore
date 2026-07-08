@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Terminal, Shield, Sparkles, MessageSquare, Flame, Server, Smartphone, Users } from "lucide-react";
+import { Terminal, Shield, Sparkles, MessageSquare, Flame, Server, Smartphone, Users, X, ExternalLink } from "lucide-react";
 import { PRODUCTS, DEFAULT_DEVELOPER_CONFIG, DeveloperConfig } from "./data";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -10,13 +10,14 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import WhatsAppAndScroll from "./components/WhatsAppAndScroll";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import logoZenStore from "./assets/images/logo_zenstore.jpg";
 
 export default function App() {
   const [devConfig, setDevConfig] = useState<DeveloperConfig | null>(null);
   const [selectedProductId, setSelectedProductId] = useState<string>("minecraft-premium");
   const [mascotError, setMascotError] = useState(false);
+  const [showPromoModal, setShowPromoModal] = useState(false);
 
   // Fetch developer configuration dynamically
   useEffect(() => {
@@ -96,6 +97,18 @@ export default function App() {
       console.log(`[Session Action] Redirect already processed in this session (${hasRedirected}).`);
     }
   }, [devConfig]);
+
+  // Trigger Welcome/Promo Modal once per load with a polite delay (highly testable on refresh)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPromoModal(true);
+    }, 2000); // 2 seconds delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  const closePromoModal = () => {
+    setShowPromoModal(false);
+  };
 
   const handleProductSelect = (productId: string) => {
     setSelectedProductId(productId);
@@ -313,6 +326,111 @@ export default function App() {
 
       {/* Floating Buttons: WhatsApp & Scroll Up */}
       <WhatsAppAndScroll />
+
+      {/* Developer Welcome Promo Modal */}
+      <AnimatePresence>
+        {showPromoModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" id="promo-modal">
+            {/* Backdrop blur overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closePromoModal}
+              className="absolute inset-0 bg-slate-950/60 backdrop-blur-md"
+            />
+
+            {/* Modal Card content */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl border border-blue-50 flex flex-col z-10"
+            >
+              {/* Header card with gradient background */}
+              <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-6 text-white relative">
+                {/* Close Button X */}
+                <button
+                  onClick={closePromoModal}
+                  className="absolute top-4 right-4 text-white/80 hover:text-white hover:bg-white/10 p-2 rounded-full transition-all focus:outline-none"
+                  aria-label="Tutup"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 border border-white/10 text-[10px] font-mono tracking-wider text-blue-100 uppercase mb-3">
+                  <Sparkles className="h-3 w-3 text-yellow-300 animate-pulse" />
+                  <span>Jasa Pembuatan Website</span>
+                </div>
+
+                <h3 className="text-xl font-extrabold font-display leading-snug">
+                  Mau Punya Website Sendiri? 🚀
+                </h3>
+                <p className="text-xs text-blue-100 mt-2 leading-relaxed">
+                  Konsultasikan ide website impian Anda langsung dengan developer kami untuk hasil premium & cepat.
+                </p>
+              </div>
+
+              {/* Body card with elegant lists */}
+              <div className="p-6 space-y-4">
+                <div className="text-sm text-slate-600 leading-relaxed space-y-2.5">
+                  <p>
+                    Halo! Saya <span className="font-bold text-slate-900">{devConfig?.name || "Ran Dev"}</span>. Selain menghadirkan hosting Minecraft premium, saya siap membangun:
+                  </p>
+                  <ul className="grid grid-cols-1 gap-2 text-xs font-mono font-bold text-blue-700 bg-blue-50/50 p-3.5 rounded-xl border border-blue-100/40">
+                    <li className="flex items-center gap-2">
+                      <span className="text-blue-500 text-sm">✓</span> Toko Online Modern (Responsive HP/PC)
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-blue-500 text-sm">✓</span> Landing Page Bisnis & Portofolio
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-blue-500 text-sm">✓</span> Sistem Web & Integrasi Server Custom
+                    </li>
+                  </ul>
+                  <p className="text-xs text-slate-500">
+                    Desain responsif premium, kecepatan loading optimal, SEO friendly, dan gratis konsultasi setup sampai online!
+                  </p>
+                </div>
+
+                {/* Primary WhatsApp Chat CTA & Discord */}
+                <div className="space-y-2 pt-2">
+                  <a
+                    href={`https://wa.me/${devConfig?.contact?.phone || "0895602592430"}?text=Halo%20Dev,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website%20custom`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-md shadow-blue-600/10 hover:scale-[1.01] duration-150"
+                  >
+                    <MessageSquare className="h-4 w-4" />
+                    <span>Chat WhatsApp Developer</span>
+                    <ExternalLink className="h-3 w-3 opacity-60" />
+                  </a>
+
+                  <a
+                    href={devConfig?.community?.discord || "https://discord.gg/9KUN2byKRM"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold text-sm border border-slate-200 transition-all duration-150"
+                  >
+                    <Users className="h-4 w-4 text-slate-500" />
+                    <span>Gabung Komunitas Discord</span>
+                    <ExternalLink className="h-3 w-3 opacity-60" />
+                  </a>
+                </div>
+
+                {/* Dismiss Button */}
+                <button
+                  onClick={closePromoModal}
+                  className="w-full text-center text-xs font-semibold text-slate-400 hover:text-slate-600 transition-colors py-1.5 font-mono uppercase tracking-wider"
+                >
+                  Lanjutkan ke ZenStore
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
