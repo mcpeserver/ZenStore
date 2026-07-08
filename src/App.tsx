@@ -342,89 +342,75 @@ export default function App() {
 
             {/* Modal Card content */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl border border-blue-50 flex flex-col z-10"
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: "spring", duration: 0.4 }}
+              className="relative w-full max-w-sm bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col z-10 p-6 sm:p-8"
             >
-              {/* Header card with gradient background */}
-              <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-6 text-white relative">
-                {/* Close Button X */}
-                <button
-                  onClick={closePromoModal}
-                  className="absolute top-4 right-4 text-white/80 hover:text-white hover:bg-white/10 p-2 rounded-full transition-all focus:outline-none"
-                  aria-label="Tutup"
-                >
-                  <X className="h-4 w-4" />
-                </button>
+              {/* Close Button */}
+              <button
+                onClick={closePromoModal}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white hover:bg-white/10 p-1.5 rounded-full transition-all focus:outline-none"
+                aria-label="Tutup"
+              >
+                <X className="h-4 w-4" />
+              </button>
 
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 border border-white/10 text-[10px] font-mono tracking-wider text-blue-100 uppercase mb-3">
-                  <Sparkles className="h-3 w-3 text-yellow-300 animate-pulse" />
-                  <span>Jasa Pembuatan Website</span>
+              <div className="flex flex-col items-center text-center">
+                <div className="h-10 w-10 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4">
+                  <Sparkles className="h-5 w-5 animate-pulse" />
                 </div>
 
-                <h3 className="text-xl font-extrabold font-display leading-snug">
-                  Mau Punya Website Sendiri? 🚀
+                <h3 className="text-lg sm:text-xl font-extrabold font-display tracking-tight leading-snug">
+                  Jasa Pembuatan Website
                 </h3>
-                <p className="text-xs text-blue-100 mt-2 leading-relaxed">
-                  Konsultasikan ide website impian Anda langsung dengan developer kami untuk hasil premium & cepat.
+                
+                <p className="text-xs text-slate-300 mt-2.5 leading-relaxed font-sans">
+                  Butuh website toko online modern (HP/PC), landing page bisnis, atau bot panel? Konsultasikan ide Anda secara gratis langsung dengan developer kami.
                 </p>
-              </div>
 
-              {/* Body card with elegant lists */}
-              <div className="p-6 space-y-4">
-                <div className="text-sm text-slate-600 leading-relaxed space-y-2.5">
-                  <p>
-                    Halo! Saya <span className="font-bold text-slate-900">{devConfig?.name || "Ran Dev"}</span>. Selain menghadirkan hosting Minecraft premium, saya siap membangun:
-                  </p>
-                  <ul className="grid grid-cols-1 gap-2 text-xs font-mono font-bold text-blue-700 bg-blue-50/50 p-3.5 rounded-xl border border-blue-100/40">
-                    <li className="flex items-center gap-2">
-                      <span className="text-blue-500 text-sm">✓</span> Toko Online Modern (Responsive HP/PC)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-blue-500 text-sm">✓</span> Landing Page Bisnis & Portofolio
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-blue-500 text-sm">✓</span> Sistem Web & Integrasi Server Custom
-                    </li>
-                  </ul>
-                  <p className="text-xs text-slate-500">
-                    Desain responsif premium, kecepatan loading optimal, SEO friendly, dan gratis konsultasi setup sampai online!
-                  </p>
-                </div>
-
-                {/* Primary WhatsApp Chat CTA & Discord */}
-                <div className="space-y-2 pt-2">
+                {/* Main Action WhatsApp Button */}
+                <div className="w-full mt-6 space-y-2.5">
                   <a
                     href={`https://wa.me/${devConfig?.contact?.phone || "0895602592430"}?text=Halo%20Dev,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website%20custom`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-md shadow-blue-600/10 hover:scale-[1.01] duration-150"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-md shadow-blue-600/20 duration-150 cursor-pointer"
                   >
                     <MessageSquare className="h-4 w-4" />
-                    <span>Chat WhatsApp Developer</span>
-                    <ExternalLink className="h-3 w-3 opacity-60" />
+                    <span>Konsultasi Gratis di WA</span>
                   </a>
 
-                  <a
-                    href={devConfig?.community?.discord || "https://discord.gg/9KUN2byKRM"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold text-sm border border-slate-200 transition-all duration-150"
-                  >
-                    <Users className="h-4 w-4 text-slate-500" />
-                    <span>Gabung Komunitas Discord</span>
-                    <ExternalLink className="h-3 w-3 opacity-60" />
-                  </a>
+                  {/* Secondary Community Discord and Portfolio */}
+                  <div className="flex justify-center gap-4 text-[11px] font-mono font-medium text-slate-400 pt-1">
+                    <a
+                      href={devConfig?.community?.discord || "https://discord.gg/9KUN2byKRM"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-400 transition-colors flex items-center gap-1 cursor-pointer"
+                    >
+                      <Users className="h-3 w-3" />
+                      Discord Dev
+                    </a>
+                    <span className="text-slate-700">•</span>
+                    <a
+                      href={devConfig?.website?.portfolio || "https://sfl.gl/x2ic"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-400 transition-colors flex items-center gap-1 cursor-pointer"
+                    >
+                      Portfolio
+                    </a>
+                  </div>
                 </div>
 
-                {/* Dismiss Button */}
+                {/* Continue Button */}
                 <button
                   onClick={closePromoModal}
-                  className="w-full text-center text-xs font-semibold text-slate-400 hover:text-slate-600 transition-colors py-1.5 font-mono uppercase tracking-wider"
+                  className="mt-6 text-center text-[10px] font-mono uppercase tracking-wider text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
                 >
-                  Lanjutkan ke ZenStore
+                  Lanjutkan ke ZenStore →
                 </button>
               </div>
             </motion.div>

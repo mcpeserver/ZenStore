@@ -95,8 +95,7 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
                         <th className="py-5 px-8">Spesifikasi RAM</th>
                         <th className="py-5 px-6">Alokasi CPU</th>
                         <th className="py-5 px-6">Penyimpanan Disk</th>
-c                        <th className="py-5 px-6">Harga Beli</th>
-                        <th className="py-5 px-8 text-right">Langkah Berikutnya</th>
+                        <th className="py-5 px-8 text-right">Harga Beli</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 text-slate-700 text-sm">
@@ -120,28 +119,29 @@ c                        <th className="py-5 px-6">Harga Beli</th>
                           <td className="py-4.5 px-6 font-mono text-slate-600">
                             {item.disk} NVMe SSD
                           </td>
-                          {/* PRICE SPEC */}
-                          <td className="py-4.5 px-6">
-                            <span className={`text-base font-black font-display text-${selectedProduct.type === 'basic' ? 'sky' : selectedProduct.type === 'premium' ? 'blue' : 'indigo'}-600`}>
-                              {item.price}
-                            </span>
-                            <span className="text-[10px] text-slate-400 font-mono ml-1">/bulan</span>
-                          </td>
-                          {/* CTA LINK */}
+                          {/* PRICE SPEC & CTA */}
                           <td className="py-4.5 px-8 text-right">
-                            <a
-                              href={getCheckoutLink(item)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-md ${
-                                selectedProduct.type === "basic" ? "bg-sky-500 hover:bg-sky-600 shadow-sky-200" :
-                                selectedProduct.type === "premium" ? "bg-blue-600 hover:bg-blue-700 shadow-blue-200" :
-                                "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200"
-                              }`}
-                            >
-                              <MessageSquare className="h-3.5 w-3.5 stroke-[2.5px]" />
-                              Beli Sekarang
-                            </a>
+                            <div className="flex items-center justify-end gap-6">
+                              <div className="text-right">
+                                <span className={`text-base font-black font-display text-${selectedProduct.type === 'basic' ? 'sky' : selectedProduct.type === 'premium' ? 'blue' : 'indigo'}-600`}>
+                                  {item.price}
+                                </span>
+                                <span className="text-[10px] text-slate-400 font-mono ml-1">/bln</span>
+                              </div>
+                              <a
+                                href={getCheckoutLink(item)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`inline-flex items-center gap-1.5 px-4.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-md ${
+                                  selectedProduct.type === "basic" ? "bg-sky-500 hover:bg-sky-600 shadow-sky-200" :
+                                  selectedProduct.type === "premium" ? "bg-blue-600 hover:bg-blue-700 shadow-blue-200" :
+                                  "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200"
+                                }`}
+                              >
+                                <MessageSquare className="h-3.5 w-3.5 stroke-[2.5px]" />
+                                Beli
+                              </a>
+                            </div>
                           </td>
                         </tr>
                       ))}
