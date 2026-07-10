@@ -24,7 +24,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           icon: <Server className="h-10 w-10 text-sky-400" />,
           glowClass: "glow-blue",
           accentColor: "sky",
-          imageSrc: `${minecraftBasic}?v=1783332535855`, // high fidelity generated portrait image
+          imageSrc: product.imageSrc || minecraftBasic, // dynamic fallback
         };
       case "premium":
         return {
@@ -32,7 +32,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           icon: <Cpu className="h-10 w-10 text-blue-400" />,
           glowClass: "glow-blue",
           accentColor: "blue",
-          imageSrc: `${minecraftPremium}?v=1783332553071`,
+          imageSrc: product.imageSrc || minecraftPremium,
         };
       case "bot":
         return {
@@ -40,7 +40,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           icon: <Smartphone className="h-10 w-10 text-indigo-400" />,
           glowClass: "glow-blue",
           accentColor: "indigo",
-          imageSrc: `${botPanel}?v=1783332565084`,
+          imageSrc: product.imageSrc || botPanel,
         };
     }
   };

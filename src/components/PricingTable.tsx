@@ -1,7 +1,7 @@
 import { useState, useTransition } from "react";
 import { MessageSquare, ShieldCheck, Server, Cpu, Smartphone, Database, Check } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { PRODUCTS, PricingPlanItem } from "../data";
+import { PRODUCTS, PricingPlanItem, WEBSITE_CONTENT } from "../data";
 
 interface PricingTableProps {
   selectedId: string;
@@ -42,10 +42,10 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 tracking-tight">
-            Pilihan Paket & <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Harga Server</span>
+            {WEBSITE_CONTENT.pricingSection.title.split(" & ")[0]} & <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">{WEBSITE_CONTENT.pricingSection.title.split(" & ")[1] || "Harga Server"}</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-4">
-            Pilih spesifikasi yang paling sesuai dengan kebutuhan server Minecraft atau bot WhatsApp Anda. Aktivasi otomatis secepat kilat.
+            {WEBSITE_CONTENT.pricingSection.subtitle}
           </p>
         </div>
 
@@ -164,9 +164,6 @@ Bagaimana prosedur pembayaran dan aktivasi selanjutnya? Terima kasih.`;
                           <Database className="h-4 w-4 text-blue-500" />
                           <span className="text-base font-extrabold font-display text-slate-850">{item.ram} RAM</span>
                         </div>
-                        <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-50 border border-slate-100 text-slate-600`}>
-                          Node Aktif
-                        </span>
                       </div>
 
                       {/* Specs Row */}

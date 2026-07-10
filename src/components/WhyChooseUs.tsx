@@ -1,5 +1,5 @@
 import * as Icons from "lucide-react";
-import { WHY_CHOOSE_US } from "../data";
+import { WHY_CHOOSE_US, WEBSITE_CONTENT } from "../data";
 import { motion } from "motion/react";
 
 export default function WhyChooseUs() {
@@ -13,10 +13,10 @@ export default function WhyChooseUs() {
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 tracking-tight">
-            Kenapa Harus <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Memilih ZenStore?</span>
+            {WEBSITE_CONTENT.whyChooseUsSection.title.split(" Memilih ")[0]} <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Memilih {WEBSITE_CONTENT.whyChooseUsSection.title.split(" Memilih ")[1] || "ZenStore?"}</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-4">
-            Komitmen kami adalah memberikan infrastruktur berkualitas gaming server sekelas korporat dengan efisiensi harga terbaik di pasar.
+            {WEBSITE_CONTENT.whyChooseUsSection.subtitle}
           </p>
         </div>
 

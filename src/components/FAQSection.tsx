@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HelpCircle, ChevronDown } from "lucide-react";
-import { FAQS } from "../data";
+import { FAQS, WEBSITE_CONTENT } from "../data";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function FAQSection() {
@@ -20,10 +20,10 @@ export default function FAQSection() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 tracking-tight">
-            Pertanyaan Yang <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Sering Diajukan</span>
+            {WEBSITE_CONTENT.faqSection.title.split(" Sering ")[0]} <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Sering {WEBSITE_CONTENT.faqSection.title.split(" Sering ")[1] || "Diajukan"}</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-4">
-            Punya pertanyaan seputar ZenStore? Cari jawaban cepat atas pertanyaan umum seputar Minecraft Server Hosting dan Panel Bot WhatsApp di bawah ini.
+            {WEBSITE_CONTENT.faqSection.subtitle}
           </p>
         </div>
 

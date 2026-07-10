@@ -1,5 +1,5 @@
 import * as Icons from "lucide-react";
-import { FEATURES } from "../data";
+import { FEATURES, WEBSITE_CONTENT } from "../data";
 import { motion } from "motion/react";
 
 export default function FeaturesSection() {
@@ -10,10 +10,10 @@ export default function FeaturesSection() {
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 tracking-tight">
-            Fitur Unggulan <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Server Hosting</span>
+            {WEBSITE_CONTENT.featuresSection.title.split(" Server ")[0]} <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Server {WEBSITE_CONTENT.featuresSection.title.split(" Server ")[1] || "Hosting"}</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-4">
-            Infrastruktur berteknologi tinggi untuk memastikan kelancaran server Anda dan bot WhatsApp Anda berjalan 24 jam nonstop.
+            {WEBSITE_CONTENT.featuresSection.subtitle}
           </p>
         </div>
 

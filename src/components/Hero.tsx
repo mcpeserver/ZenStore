@@ -1,29 +1,18 @@
 import { Shield, Sparkles, MessageSquare } from "lucide-react";
 import { motion } from "motion/react";
+import { WEBSITE_CONTENT } from "../data";
 
-export default function Hero() {
-  const handleScroll = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+interface HeroProps {
+  onSelectTab: (tabId: string) => void;
+}
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
-
+export default function Hero({ onSelectTab }: HeroProps) {
   return (
-    <section className="relative min-h-screen pt-36 pb-20 md:pt-44 flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-slate-50 grid-pattern-fine">
+    <section className="relative min-h-screen pt-32 pb-16 md:pt-40 flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-slate-50 grid-pattern-fine">
       {/* Background Gradients & Ambient Glows */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-500/5 blur-[120px]"></div>
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-85 h-85 rounded-full bg-blue-500/5 blur-[120px]"></div>
       <div className="absolute top-1/3 right-1/4 translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-sky-500/5 blur-[140px]"></div>
-      <div className="absolute bottom-1/4 left-1/3 -translate-x-1/2 w-80 h-80 rounded-full bg-indigo-500/5 blur-[130px]"></div>
+      <div className="absolute bottom-1/4 left-1/3 -translate-x-1/2 w-85 h-85 rounded-full bg-indigo-500/5 blur-[130px]"></div>
 
       {/* Grid Overlay with Radial Gradient Mask */}
       <div className="absolute inset-0 grid-pattern opacity-60"></div>
@@ -48,7 +37,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 font-mono text-xs font-semibold tracking-wider uppercase mb-6"
           >
             <Shield className="h-3.5 w-3.5 text-blue-500 fill-blue-500/10" />
-            <span>STABLE & HIGH PERFORMANCES HOSTING</span>
+            <span>{WEBSITE_CONTENT.hero.badge}</span>
           </motion.div>
 
           {/* Title */}
@@ -56,12 +45,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-display text-slate-900 mb-6 leading-none text-center"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-display text-slate-900 mb-6 leading-none text-center whitespace-pre-line"
           >
-            Minecraft Hosting & <br />
-            <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
-              Panel Bot Terbaik
-            </span>
+            {WEBSITE_CONTENT.hero.title}
           </motion.h1>
 
           {/* Subtitle */}
@@ -71,7 +57,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed mb-8 mx-auto text-center"
           >
-            Hosting cepat, stabil, anti lag, dan panel bot WhatsApp berkualitas dengan harga mulai dari <span className="text-blue-600 font-bold">Rp1.000</span>. Aktivasi instan, lokasi Indonesia, dan garansi uptime tertinggi.
+            {WEBSITE_CONTENT.hero.subtitle}
           </motion.p>
 
           {/* Call To Actions */}
@@ -82,10 +68,10 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
           >
             <button
-              onClick={() => handleScroll("#products")}
+              onClick={() => onSelectTab("pricing")}
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-blue-700 text-white font-bold text-sm tracking-wider uppercase shadow-xl shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
             >
-              Lihat Paket
+              {WEBSITE_CONTENT.hero.primaryCta}
             </button>
             
             <a
@@ -95,7 +81,7 @@ export default function Hero() {
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white border border-blue-200 hover:border-blue-400 text-slate-700 hover:text-blue-600 font-bold text-sm tracking-wider uppercase hover:bg-slate-50 hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm"
             >
               <MessageSquare className="h-4 w-4 text-blue-500" />
-              Hubungi Admin
+              {WEBSITE_CONTENT.hero.secondaryCta}
             </a>
           </motion.div>
 

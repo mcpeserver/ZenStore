@@ -1,3 +1,7 @@
+import minecraftBasic from "./assets/images/minecraft_basic_portrait.jpg";
+import minecraftPremium from "./assets/images/minecraft_premium_portrait.jpg";
+import botPanel from "./assets/images/bot_panel_portrait.jpg";
+
 export interface PricingPlanItem {
   ram: string;
   cpu: string;
@@ -22,6 +26,7 @@ export interface ProductCard {
     gradient: string;
   };
   items: PricingPlanItem[];
+  imageSrc: string;
 }
 
 export interface DeveloperConfig {
@@ -112,6 +117,7 @@ export const PRODUCTS: ProductCard[] = [
       gradient: "from-white to-sky-50/20",
     },
     items: MINECRAFT_BASIC_ITEMS,
+    imageSrc: minecraftBasic,
   },
   {
     id: "minecraft-premium",
@@ -135,6 +141,7 @@ export const PRODUCTS: ProductCard[] = [
       gradient: "from-white to-blue-50/20",
     },
     items: MINECRAFT_PREMIUM_ITEMS,
+    imageSrc: minecraftPremium,
   },
   {
     id: "panel-bot",
@@ -158,6 +165,7 @@ export const PRODUCTS: ProductCard[] = [
       gradient: "from-white to-indigo-50/20",
     },
     items: PANEL_BOT_ITEMS,
+    imageSrc: botPanel,
   },
 ];
 
@@ -292,4 +300,57 @@ export const DEFAULT_DEVELOPER_CONFIG: DeveloperConfig = {
   },
   updated_at: "2026-07-06T00:00:00Z",
   version: "1.0.0"
+};
+
+export const WEBSITE_CONTENT = {
+  hero: {
+    badge: "STABLE & HIGH PERFORMANCES HOSTING",
+    title: "Minecraft Hosting & \nPanel Bot Terbaik",
+    subtitle: "Hosting cepat, stabil, anti lag, dan panel bot WhatsApp berkualitas dengan harga mulai dari Rp1.000. Aktivasi instan, lokasi Indonesia, dan garansi uptime tertinggi.",
+    primaryCta: "Lihat Paket",
+    secondaryCta: "Hubungi Admin",
+  },
+  productsSection: {
+    title: "ZenStore Produk Digital Kami",
+    subtitle: "Layanan server hosting performa unggul untuk Minecraft Java & Bedrock serta panel siap pakai untuk kelancaran operasional Bot WhatsApp Anda.",
+  },
+  mascotBanner: {
+    badge: "PREMIUM DIGITAL OUTLET",
+    title: "ZenStore Official Storefront & Admin",
+    description: "Beli layanan hosting Minecraft Server & Panel Bot WhatsApp secara resmi, mudah, dan aman langsung melalui Customer Support kami di WhatsApp. Tim Admin kami siap melayani setup instan serta konsultasi teknis harian.",
+    whatsappSupportLabel: "Customer Support",
+    whatsappNumberText: "WhatsApp Admin: 08131469731",
+    whatsappLinkText: "Hubungi WhatsApp Admin",
+  },
+  pricingSection: {
+    title: "Pilihan Paket & Harga Server",
+    subtitle: "Pilih spesifikasi yang paling sesuai dengan kebutuhan server Minecraft atau bot WhatsApp Anda. Aktivasi otomatis secepat kilat.",
+  },
+  featuresSection: {
+    title: "Fitur Unggulan Server Hosting",
+    subtitle: "Infrastruktur berteknologi tinggi untuk memastikan kelancaran server Anda dan bot WhatsApp Anda berjalan 24 jam nonstop.",
+  },
+  whyChooseUsSection: {
+    title: "Kenapa Harus Memilih ZenStore?",
+    subtitle: "Komitmen kami adalah memberikan infrastruktur berkualitas gaming server sekelas korporat dengan efisiensi harga terbaik di pasar.",
+  },
+  faqSection: {
+    title: "Pertanyaan Yang Sering Diajukan",
+    subtitle: "Punya pertanyaan seputar ZenStore? Cari jawaban cepat atas pertanyaan umum seputar Minecraft Server Hosting dan Panel Bot WhatsApp di bawah ini.",
+  },
+  customWebSection: {
+    badge: "Custom Web Development",
+    title: "Ingin Buat Website Toko Online Sendiri?",
+    description: "Kami melayani jasa pembuatan website toko online profesional, landing page, dan sistem web custom dengan tampilan modern, responsive di HP/Laptop, serta dioptimalkan untuk SEO & kecepatan akses.",
+    primaryCta: "Chat Developer Sekarang",
+    secondaryCta: "Lihat Portfolio Dev",
+  },
+  promoModal: {
+    title: "Jasa Pembuatan Website",
+    description: "Butuh website toko online modern (HP/PC), landing page bisnis, atau bot panel? Konsultasikan ide Anda secara gratis langsung dengan developer kami.",
+    primaryCta: "Konsultasi Gratis di WA",
+    discordLabel: "Discord Dev",
+    portfolioLabel: "Portfolio",
+    continueLabel: "Lanjutkan ke ZenStore →",
+  },
 };

@@ -1,51 +1,66 @@
-import React, { useState } from "react";
-import { Menu, X, MessageSquare, ExternalLink } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Menu, X, MessageSquare, Laptop, Home, Shield, Sparkles, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { DeveloperConfig } from "../data";
 import logoZenStore from "../assets/images/logo_zenstore.jpg";
 
 interface NavbarProps {
   devConfig: DeveloperConfig | null;
+  activeTab: string;
+  onSelectTab: (tabId: string) => void;
 }
 
-export default function Navbar({ devConfig }: NavbarProps) {
+export default function Navbar({ devConfig, activeTab, onSelectTab }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [showDevDropdown, setShowDevDropdown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { name: "Harga Paket", href: "#pricing" },
-    { name: "Fitur", href: "#features" },
-    { name: "Kenapa Kami", href: "#why-us" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Beranda", id: "home", icon: <Home className="h-4 w-4" /> },
+    { name: "Paket Hosting", id: "pricing", icon: <Shield className="h-4 w-4" /> },
+    { name: "FAQ", id: "faq", icon: <HelpCircle className="h-4 w-4" /> },
   ];
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleLinkClick = (e: React.MouseEvent, tabId: string) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80; // height of navbar
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
+    onSelectTab(tabId);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
     setIsOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm" id="navbar">
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white/80 backdrop-blur-lg border-b border-slate-200/50 shadow-md py-2.5" 
+          : "bg-white border-b border-transparent py-4"
+      }`} 
+      id="navbar"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           {/* Logo Brand */}
-          <div className="flex-shrink-0 flex items-center gap-2.5">
+          <button 
+            onClick={(e) => handleLinkClick(e, "home")}
+            className="flex-shrink-0 flex items-center gap-2.5 cursor-pointer text-left focus:outline-none"
+          >
             <div className="relative group">
-              <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 opacity-20 blur group-hover:opacity-40 transition duration-300"></div>
-              <div className="relative h-9 w-9 rounded-lg bg-white border border-blue-200 overflow-hidden flex items-center justify-center">
+              <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 to-sky-500 opacity-20 blur group-hover:opacity-40 transition duration-300 animate-pulse"></div>
+              <div className="relative h-9 w-9 rounded-lg bg-white border border-blue-150 overflow-hidden flex items-center justify-center">
                 <img 
                   src={`${logoZenStore}?v=1783331470098`} 
                   alt="ZenStore Mascot" 
@@ -59,21 +74,27 @@ export default function Navbar({ devConfig }: NavbarProps) {
                 ZENSTORE
               </span>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleScroll(e, link.href)}
-                className="text-slate-600 hover:text-blue-600 font-medium text-sm tracking-wide transition-colors relative group py-2"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+          <div className="hidden md:flex items-center gap-1 bg-slate-100/60 p-1 rounded-xl border border-slate-200/40">
+            {navLinks.map((link) => {
+              const isActive = link.id === activeTab;
+              return (
+                <button
+                  key={link.id}
+                  onClick={(e) => handleLinkClick(e, link.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold tracking-wide transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-white text-blue-600 shadow-sm"
+                      : "text-slate-600 hover:text-blue-500 hover:bg-white/40"
+                  }`}
+                >
+                  {link.icon}
+                  <span>{link.name}</span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Desktop Right CTA */}
@@ -82,7 +103,7 @@ export default function Navbar({ devConfig }: NavbarProps) {
               href="https://wa.me/628131469731"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all cursor-pointer shadow-md shadow-blue-200 gap-1.5"
+              className="inline-flex items-center justify-center px-4.5 py-2.5 text-xs font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all cursor-pointer shadow-md shadow-blue-200 gap-1.5"
             >
               <MessageSquare className="h-3.5 w-3.5" />
               <span>Hubungi Admin</span>
@@ -108,19 +129,26 @@ export default function Navbar({ devConfig }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-blue-100 bg-white shadow-lg"
+            className="md:hidden border-t border-blue-100 bg-white shadow-lg overflow-hidden"
           >
             <div className="px-4 pt-3 pb-6 space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleScroll(e, link.href)}
-                  className="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = link.id === activeTab;
+                return (
+                  <button
+                    key={link.id}
+                    onClick={(e) => handleLinkClick(e, link.id)}
+                    className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-base font-bold transition-all text-left ${
+                      isActive
+                        ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600"
+                        : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
+                    }`}
+                  >
+                    {link.icon}
+                    <span>{link.name}</span>
+                  </button>
+                );
+              })}
 
               <div className="pt-3">
                 <a
